@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<div class="form">
+    <form method="post">
+        Name of the course: <input type="text" name="c_name">
+        Total duration: <input type="number" name="c_duration">
+        Current week : <input type="number" name="curr_week">
+        Description : <input type = "text" name="desc">
+    
+        <input type="submit" value="Add">
+    </form>
+</div>
+{% endblock %}

@@ -1,20 +1,25 @@
 {% extends "layout.html" %}
 
 {% block main %}
-<div class="form">
-        <form method="post">
-            Name of the course: <input type="text" name="c_name">
-            Total duration: <input type="number" name="c_duration">
-            Current week : <input type="number" name="curr_week">
-            Description : <input type = "text" name="desc">
-        
-            <input type="submit" value="Add">
-        </form>
-    </div>
 <div>
     course name: {{ c_name }} <br>
     course duration: {{ c_duration }} <br>
     current week: {{ curr_week }} <br>
     description: {{ desc }} <br>
+    <!doctype html>
 </div>
+    <div class="container">
+        <div class="col-4 offset-5">
+          <div class="mx-auto"><h2>Dashboard</h2></div>
+        </div>
+      </div>
+    <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Course Name</th>
+        <th scope="col">Total duration</th>
+        <th scope="col">Time Spent</th>
+      </tr>
+    </thead>
+    </table>
 {% endblock %}

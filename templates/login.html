@@ -2,12 +2,23 @@
 
 {% block main %}
 <form action="{{ url_for('login') }}" method="post">
-    <label for="username">Username:</label>
-    <input type="text" name="username" id="username">
 
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password">
 
-    <input type="submit" value="Login">
+<div class="wrapper fadeInDown">
+<div id="formContent">
+<!-- Tabs Titles -->
+<h1>Course Tracker</h1>
+<!-- Icon -->
+<div class="fadeIn first">
+  <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+</div>
+
+<!-- Login Form -->
+
+  <input type="text" id="login" class="fadeIn second" name="username" id="username" placeholder="login">
+  <input type="text" id="password" class="fadeIn third" name="password" id="password" placeholder="password">
+  <input type="submit" class="fadeIn fourth" value="Login">
 </form>
+</div>
+</div>
 {% endblock %}

@@ -12,6 +12,11 @@
 <body>
     <div class="container">
         <div class="content">
+            <a href="{{ url_for('index') }}">Course Tracker</a>
+            <a href="{{ url_for('register') }}">Register</a>
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+
             {% block main %}{% endblock %}
 
             {% if get_flashed_messages() %}

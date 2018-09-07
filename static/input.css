@@ -3,7 +3,7 @@ body, html {
 }
 .bg {
     /* The image used */
-    background-image: url("image/IMG_1387.JPG");
+    background-image: url("image/rawpixel-603019-unsplash.jpg");
 
     /* Full height */
     height: 100%;
@@ -15,15 +15,7 @@ body, html {
 }
 
 .text
-{color: #ffffff;
-
-}
-h2 {
-  text-align: center;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  display:inline-block;
-  margin: 40px 8px 10px 8px;
-  color: #cccccc;
+{color: #ffffff;}
+#text1{
+  color: #ffffff;
 }

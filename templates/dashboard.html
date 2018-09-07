@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% block main %}
+{% block content %}
 <div>
     course name: {{ c_name }} <br>
     course duration: {{ c_duration }} <br>
@@ -10,7 +10,7 @@
 </div>
     <div class="container">
         <div class="col-4 offset-5">
-          <div class="mx-auto"><h2>Dashboard</h2></div>
+          <div class="text"><h2>DASHBOARD</h2></div>
         </div>
       </div>
     <table class="table table-dark">
@@ -21,5 +21,6 @@
         <th scope="col">Time Spent</th>
       </tr>
     </thead>
+    
     </table>
 {% endblock %}

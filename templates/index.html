@@ -1,47 +1,44 @@
 {% extends "layout.html" %}
 
-{% block main %}
+{% block content %}
 
 Welcome to Course tracker
 <div class="container">
-  <div class="col-4 offset-4">
-    <div class="mx-auto"><h2>Add Course</h2></div>
-  </div>
+<div class="col-3 offset-5">
+  <div  class="text"><h4>ADD COURSE</h4></div>
 </div>
-
-
-
+</div>
 <form>
 <div class="container">
-  <div class="col-4 offset-4"><div class="form-group">
-  <label for="exampleInputEmail1">Course Name</label>
-  <input type="name" class="form-control" id="name" aria-describedby="emailHelp">
+<div class="col-4 offset-4"><div class="form-group">
+<label for="exampleInputEmail1" class="text">Course Name</label>
+<input type="name" class="form-control" id="name" aria-describedby="emailHelp">
 </div></div>
 </div>
 <div class="container">
-  <div class="col-4 offset-4">
+<div class="col-4 offset-4">
 <div class="form-group">
-  <label for="duration">Total time</label>
-  <input type="number" class="form-control" id="duration">
+<label for="duration" class="text">Total time</label>
+<input type="number" class="form-control" id="duration">
 </div>
 </div>
 </div>
 <div class="container">
-  <div class="col-4 offset-4">
+<div class="col-4 offset-4">
 <div class="form-group">
-  <label for="spent">Time spent</label>
-  <input type="number" class="form-control" id="spent">
+<label for="spent" class="text">Time spent</label>
+<input type="number" class="form-control" id="spent">
 </div></div>
 </div>
 <div class="container">
-  <div class="col-4 offset-4">
+<div class="col-4 offset-4">
 <div class="form-group">
-  <label for="des">Description</label>
-  <input type="text" class="form-control" id="des">
+<label for="des" class="text">Description</label>
+<input type="text" class="form-control" id="des">
 </div></div>
 </div>
 <div class="container">
-  <div class="col-4 offset-4">
+<div class="col-4 offset-4">
 <button type="submit" class="btn btn-primary btn-success btn-lg">Add Course</button>
 <button type="submit" class="btn btn-lg">Cancel</button>
 </div>

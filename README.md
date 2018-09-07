@@ -8,4 +8,7 @@ Enter course name,time spent and total duration of the present course you are ta
 #future additions 
 
 Visuals based on your time taken and total time.
+
 To avoid manual input and link to apis for site of online courses.
+
+Update UI

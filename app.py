@@ -21,38 +21,34 @@ def login_required(f):
         return f(*args, **kwargs)
     return wrap
 
-# db_path = os.path.join(os.path.dirname(__file__), 'app.db')
-# db_uri = 'sqlite:///{}'.format(db_path)
-# app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
-
-# db = SQLAlchemy(app)
-
-# class User(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     c_name = db.Column(db.String(80), unique=True, nullable=False)
-#     c_duration = db.Column(db.Integer, unique=False, nullable=False)
-#     curr_week = db.Column(db.Integer, unique=False, nullable=False)
-#     desc = db.Column(db.String(100), unique=False, nullable=False)
-
-# db.create_all()
-
-# db = sqlite3.connect('app.db', check_same_thread=False)
-
 @app.route('/')
-def index():
-    return render_template('index.html')
-
 @login_required
-@app.route('/dashboard', methods=["GET", "POST"])
-def dashboard():
-    if request.method == 'GET':
-        return render_template('index.html')
+def index():
+    if request.method == "POST":
+        c_name = request.form.get('c_name')
+        c_duration = request.form.get('c_duration')    
+        desc = request.form.get('desc')
+        curr_week = 0
+        username = session["user_id"]
+        print('here')
+        with sqlite3.connect("app.db") as db:
+            db.execute(f"INSERT INTO user (user,c_name,c_duration,curr_week,desc) VALUES ('{username}','{c_name}',{c_duration},{curr_week},'{desc}')")
+        print('added')
+        return redirect(url_for('dashboard'))
     else:
-        c_name = request.form['c_name']
-        c_duration = request.form['c_duration']     
-        curr_week = request.form['curr_week']     
-        desc = request.form['desc'] 
-        return render_template('dashboard.html', c_name=c_name, c_duration=c_duration, curr_week=curr_week, desc=desc)    
+        return render_template('index.html')
+
+@app.route('/dashboard', methods=["GET", "POST"])
+@login_required
+def dashboard():
+    username = session["user_id"]
+    with sqlite3.connect("app.db") as db:
+        result = db.execute(f"SELECT * FROM user where user = '{username}'")
+
+    data = []
+    for row in result:
+        data.append(row)
+    return render_template('dashboard.html', data=data)
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -116,14 +112,24 @@ def register():
             return render_template("register.html")
 
         # remember which user has logged in
-        session["user_id"] = username
+        # session["user_id"] = username
         flash("You've been registered!")
         # redirect user to home page
-        return redirect(url_for("index"))
+        return redirect(url_for("login"))
 
     else:
         return render_template("register.html")
 
+@app.route("/logout")
+def logout():
+    """Log user out."""
+
+    # forget any user_id
+    session.clear()
+
+    # redirect user to login form
+    flash("Logged out successfully.")
+    return redirect(url_for("login"))
 
 if __name__ == "__main__":
     app.run(debug=True)

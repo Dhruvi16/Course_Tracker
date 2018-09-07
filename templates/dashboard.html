@@ -1,26 +1,27 @@
 {% extends "layout.html" %}
 
-{% block content %}
-<div>
-    course name: {{ c_name }} <br>
-    course duration: {{ c_duration }} <br>
-    current week: {{ curr_week }} <br>
-    description: {{ desc }} <br>
-    <!doctype html>
-</div>
+{% block main %}
     <div class="container">
         <div class="col-4 offset-5">
           <div class="text"><h2>DASHBOARD</h2></div>
         </div>
       </div>
-    <table class="table table-dark">
-    <thead>
+    <table style="width:100%; border: 3px solid #000000;">
+      <thead style="font-size: 15px;font-weight: bold;color: #000000;text-align: left;">
       <tr>
-        <th scope="col">Course Name</th>
-        <th scope="col">Total duration</th>
-        <th scope="col">Time Spent</th>
+        <th>Course name</th>
+        <th>Course duration</th>
+        <th>current week</th>
+        <th>description</th>
       </tr>
-    </thead>
-    
-    </table>
+      </thead>
+    {% for row in data %}
+      <tr style="border: 1px solid #000000; padding: 5px 4px;">
+      {% for cell in row %}
+      <td style="font-weight: bold">{{ cell }}</td>
+      {% endfor %}
+      </tr>
+    {% endfor %}
+</table>
+
 {% endblock %}

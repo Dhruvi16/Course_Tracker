@@ -8,9 +8,6 @@ app = Flask(__name__)
 app.secret_key = 'some secret key'
 
 
-
-
-
 # Decorators
 
 def login_required(f):
@@ -21,7 +18,7 @@ def login_required(f):
         return f(*args, **kwargs)
     return wrap
 
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 @login_required
 def index():
     if request.method == "POST":
